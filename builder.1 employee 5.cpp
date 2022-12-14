@@ -1,65 +1,103 @@
 #include <iostream>
 using namespace std;
+class a{
+    public:
 
-struct student
-{
-    char name[50];
-    int roll;
-    int role;
-    int age;
-    int salary;
-    int experince;
-    char city[50];
-    char company[50];
-    
-} s[5];
+	       int id;
+	       char name[50];
+	       char role[50];
+	       int salary;
+	       int experience;
+	       char company_name[50];
+	       char address[150];
+	       char email[50];
+	       char contact[10];
+	       
+	       
+	       void setter1(){
+	       	
+	    cout<<"Enter Id :- ";
+	    cin>>id;
+	    cout<<"Enter Name :- ";
+	    cin>>name;
+	    cout<<"Enter Role :- ";
+	    cin>>role;    
+	       	
+		   }	
+	
+};
 
-int main()
-{
-    cout << "Enter Employ information : " << endl << endl;
+class B : public A{
+	
+	public:
+		
+		void setter2(){
+			
+		   cout<<"Enter Salary :- ";
+	       cin>>salary;
+	       cout<<"Enter Experience :- ";
+	       cin>>experience;
+			
+		}
+	
+};
 
-    for(int i = 0; i <=4 ; ++i)
-    {
-        s[i].roll = i+1;
-        cout << "Employ number" << s[i].roll << "," << endl;
+class C : public B{
+	
+	public:
+		
+		void setter3(){
+			
+		   cout<<"Enter Company Name :- ";
+	       cin>>company_name;
+           cout<<"Enter Company Address :- ";
+	       cin>>address;
+			
+		}
+		
+		void getter(){
+			
+			cout<<"Name :- "<<name<<endl;
+			cout<<"Role :- "<<role<<endl;
+			cout<<"Salary :- "<<salary<<endl;
+		}
+	
+	
+};
 
-        cout << "Enter name: ";
-        cin >> s[i].name;
-
-        cout << "Enter Role: ";
-        cin >> s[i].role;
-        
-        cout << "Enter Age: ";
-        cin >> s[i].age;
-        
-        cout << "Enter Salary : ";
-        cin >> s[i].salary;
-        
-        cout << "Enter Experince : ";
-        cin >> s[i].experince;
-        
-        cout << "Enter City Name: ";
-        cin >> s[i].city;
-        
-        cout << "Enter Company Name : ";
-        cin >> s[i].company;
-
-        cout << endl;
-    }
-    cout << "Displaying Information: " << endl << endl;
-
-    for(int i = 0; i <=4 ; ++i)
-    {
-        cout << "\n Employ : " << i+1 << endl;
-        cout << "Name : " << s[i].name << endl;
-        cout << "Role : " << s[i].role << endl;
-        cout << "Age  : " << s[i].age << endl;
-        cout << "salary : " << s[i].salary << endl;
-        cout << "Experince : " << s[i].experince << endl;
-        cout << "City : " << s[i].city << endl;
-        cout << "Company Name : " << s[i].company << endl;
-        
-    }
-
-    return 0;
+class D : public C{
+	
+	public:
+		
+		void setter4(){
+			
+			setter1();
+			setter2();
+			setter3();
+			
+		   cout<<"Enter Email :- ";
+	       cin>>email;
+	       
+	       cout<<"Enter Contact :- ";
+	       cin>>contact;
+		}
+		
+		void getdata()
+		{
+			
+			cout<<"Id :- "<<id<<endl;
+			getter();
+			cout<<"Experience :- "<<experience<<endl;
+			cout<<"Company Name :- "<<company_name<<endl;
+			cout<<"Address :- "<<address<<endl;
+			cout<<"Email :- "<<email<<endl;
+			cout<<"Contact :- "<<contact<<endl;
+			
+		}
+};
+main(){
+	
+	D obj;
+	obj.setter4();
+	obj.getdata();
 }
